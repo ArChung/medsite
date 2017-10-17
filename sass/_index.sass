@@ -1,0 +1,114 @@
+
+html,body 
+	width: 100%
+	height: 100%
+	overflow: hidden
+
+
+  
+
+.mainContainer
+	width: 100%
+	height: 100%
+	position: relative
+	@for $i from 0 through 4 
+		&.channel_#{$i}
+			.p#{$i}
+				display: block
+	.menu
+		position: absolute
+		left: 0
+		bottom: 0
+		z-index: 5
+		+bg('menu.png')
+		> * 
+			position: absolute
+			width: 125px
+			height: 50px
+			// border: 1px solid #000
+			top: 50px
+			left: 270px
+		@for $i from 1 through 4 
+			.m_#{$i}
+				margin-left: 125 * ( $i - 1) * 1px
+
+	.page 
+		width: 100%
+		height: 100%
+		
+		background-size: 100% 100%
+		position: relative
+		display: none
+		.homeBtn
+			position: absolute
+			right: 51px
+			top: 38px
+			+bg('home.png')
+
+
+	.p1 
+		+bgi('p0.jpg')
+	.p0 
+		+bgi('bg.jpg')
+		.subContainer
+			position: absolute
+			+bg('box.png')
+			top: 135px
+			left: 577px
+			.vBtn 
+				position: absolute
+				top: 20px
+				left: 25px
+			@for $i from 1 through 10
+				.v_#{$i}
+					+bg('p#{$i}.png')
+					&.vl2
+						top: 140px
+					&.vl3 
+						top: 260px
+					&:nth-child(3n+2)
+						left: 145px 
+					&:nth-child(3n+3)
+						left: 265px
+.videoPop
+	position: absolute
+	z-index: 1000
+	background-color: rgba(black,0.7)
+	width: 100%
+	height: 100%
+	+divGoVerticalCenter_forMom
+	.sub
+		// background-color: #ddd
+
+		position: relative
+		width: 860px
+		height: 485px
+		border: 1px solid #888
+		
+		+divGoVerticalCenter_forKid
+		.clozBtn
+			+bg('cloz.png')
+			position: absolute
+			top: -60px
+			right: 0
+.alertPop
+	position: absolute
+	z-index: 1000
+	background-color: #eee
+	width: 100%
+	height: 100%
+	+divGoVerticalCenter_forMom
+	.sub
+		background-color: #ddd
+		font-size: 3rem
+		text-align: center
+		padding: 50px
+		border: 5px solid #888
+		border-radius: 10px
+		+divGoVerticalCenter_forKid
+
+		
+@media (orientation: landscape) 
+	.alertPop
+		display: none
+			
